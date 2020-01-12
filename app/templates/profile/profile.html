@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        <h3>{{user.username|capitaliaze}}</h3>
+        <hr>
+        <div class="col-md-9">
+            <p>Name:{{user.firstname}} {{user.lastname}}</p>
+            <p>No of pitches:{{pitches}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="co-md-12">
+            <h3>Bio</h3>
+            {% if user.bio%}
+                <p></p>
+            {%else%}
+                <p>{{user.username|capitalize}} has no bio</p>
+            {%end if%}
+            {% if user == current_user %}
+            <a href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+            {% end if %}
+        </div>
+    </div>
+</div>
+{%end block%}
