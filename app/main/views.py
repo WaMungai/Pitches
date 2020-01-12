@@ -70,3 +70,31 @@ def promotion_pitches():
     pitches =Pitch.get_pitches('promotion')
     
     return render_template('promotion_pitches.html',pitches =pitches)
+
+@main.route('/pitch/<int:id>',method=['GET','POST'])
+def pitch(id):
+    pitch =Pitch.get_single_pitch(id)
+    posted_date=pitche.posted.strftime'(%b %d,%Y')
+    if request.args.get("like"):
+        pitch.dislike =pitch..dislikes +1
+        db.session.add(pitch)
+        db.session.commit()
+        
+        return redirect("/pitches/{pitch_id}".format(pitch_id = pitch.id))
+    
+    comment_form.validate_on_submit():
+        comment =comment_form.text.data
+        
+        new_comment=Comment(comment =comment,user_id =current_user,pitch_id=pitch)
+        new_comment.save_comment()
+        
+        comments =Comments.get_comments(pitch)
+        return.render_template("pitch.html",pitch=pitch,comment_form =comment_form,comments=comments,date=posted_date)
+    
+@main.route('/user/<uname>pitches')
+def user_pitches(uname):
+    user =User.query.filter_by(username=uname).first()
+    pitches =Pitch.query.filter_by(user_id =user.id).all()
+    pitches_count =Pitch.count_pitches(uname)
+    
+    return render_template("profile/pitches.html",user=user,pitches=pitches,pitches_count=pitches_count)    
