@@ -1,0 +1,11 @@
+.jumbotron{
+    background-color:#34e6b8;
+    color:#000000;
+    padding:100px 25 px;
+    font-family:'Indie Flower',cursive
+}
+.navbar {
+    margin-bottom:0;
+    font-family:'Sacramento',cursive;
+    font-size:40px;
+}
