@@ -9,7 +9,7 @@ class Config:
     # SQLALCHEMY_TRACK_MODIFICATIONS = False
     # UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://aphya5:NewPasword@localhost/pitches'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://aphya5:NewPasword@localhost/pitches_test'
 
     # email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
