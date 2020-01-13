@@ -53,6 +53,7 @@ def new_pitches():
     title ='New Pitch'
     return render_template('new_pitch.html',title=title,pitch_form=pitch_form)
 
+
 @main.route('/pitches/interview_pitches')
 def interview_pitches():
     pitches=Pitch.get_pitches('interview')

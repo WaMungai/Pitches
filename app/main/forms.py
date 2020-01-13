@@ -8,7 +8,7 @@ class PitchForm(FlaskForm):
     '''
     title =StringField('Pitch title',validators =[Required()])
     text =TextAreaField('Text',validators=[Required()])
-    cartegory= SelectField('Type',choices[('pickup-line','Pickup-line pitches'),('interview','Interview pitch','product''Product pitch'),('promotion','Promotion pitch')],validators =[Required()])
+    cartegory= SelectField('Type',choices=[('pickup-line','Pickup-line pitches'),('interview','Interview pitch','product''Product pitch'),('promotion','Promotion pitch')],validators =[Required()])
     submit=SubmitField('Submit')
     
 class UpdateProfile(FlaskForm):
