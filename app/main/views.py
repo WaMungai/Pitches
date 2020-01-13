@@ -13,7 +13,7 @@ def index():
     '''
     title ="Pitch perfect"
     
-    pickup_pitches =Pitch.get_pitches("pickup-line")
+    pickup_pitches =Pitch.get_pitches("pickup-pitches")
     interview_pitches =Pitch.get_pitches("interview")
     product_pitches =Pitch.get_pitches("product")
     promotion_pitches=Pitches.get_pitches("promotion")
@@ -29,7 +29,7 @@ def profile(uname):
         
         form =UpdateProfile()
         
-        if form.valiidate_on_submit():
+        if form.validate_on_submit():
             user.bio =form.bio.data
             
             db.session.add(user)
@@ -37,7 +37,7 @@ def profile(uname):
             
             return redirect(url_for('profile/update.html',form=form))
         
-@main.route('/pitch/new',mrthods =['GET','POST'])
+@main.route('/pitch/new',methods =['GET','POST'])
 @login_required
 def new_pitches():
     pitch_form =PitchForm()
@@ -55,9 +55,9 @@ def new_pitches():
 
 @main.route('/pitches/pickup_pitches')
 def pickup_pitches():
-    pitches =Pitch.get_pitches('pickup-line')
+    pitches =Pitch.get_pitches('pickup_pitches')
     
-    return render_template("pickup-line.html",pitches=pitches)
+    return render_template("pickup_line.html",pitches=pitches)
     
 @main.route('/pitches/interview_pitches')
 def interview_pitches():
