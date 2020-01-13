@@ -1,0 +1,40 @@
+<div class="navbar navbar-light" role="navigation" style="margin-bottom:0; border-bottom:1px solid;">
+    <div class="container-fluid">
+        <div navbar-header>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Pitch Perfect</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="{{url_for('main.pickup_line)}}'">Pickup lines</a></li>
+                <li><a href="{{url_for('main.interview_pitches)}}'">Interview Pitches</a></li>
+                <li><a href="{{url_for('main.product_pitches)}}'">Product Pitches</a></li>
+                <li><a href="{{url_for('main.promotion_pitches)}}'">Promotion Pitches</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {%if current_user.is authenticated%}
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdwon" role="button" aria-haspopup="true" aria-expanded="false">{{currenr_user.username|capitalize}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ur_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+                        <li><a href="{{url_for('main.user_pitches',uname=current_user.username)}}">My Pitches</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{url_for('auth.logout')">Sign out</a></li>
+                    </ul>
+                </li>   
+                        {%else%}
+                        <li><a href="{{url_for('auth.logout')}}">Sign in</a></li>
+                        <li><a href="{{url_for('auth.register')}}'">Sign up</a></li>
+
+                    
+            </ul>
+            {%endif%}
+        </div>
+    </div>
+</div>
